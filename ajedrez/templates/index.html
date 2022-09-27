@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="conteiner">
+        <div>
+            <h1>***Checkerboard***</h1>
+        </div>
+        <div class="parte2">
+        <table border="0" cellpadding="0" cellspacing="0">
+            {% for x2 in range (x) %}
+            {%  if x2%2 ==0 %}
+                <tr>
+                    {% for y2 in range (y) %}
+                    {% if y2%2 ==0 %}
+                    <td class="color1" style="background-color: {{color1}}"></td>
+                    {% endif %}
+                    {% if y2%2 !=0 %}
+                    <td class="color2" style="background-color: {{color2}}"></td>
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+                    {% endif %}
+
+            {% if x2%2 !=0 %}
+                <tr>
+                    {% for y2 in range (y) %}
+                    {% if y2%2 ==0 %}
+                    <td class="color2" style="background-color: {{color2}}"></td>
+                    {% endif %}
+                    {% if y2%2 !=0 %}
+                    <td class="color1" style="background-color: {{color1}}"></td>
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endif %}
+            {% endfor %}
+
+            
+        </table>
+        </div>
+    </div>
+</body>
+</html>
